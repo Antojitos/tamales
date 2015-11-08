@@ -5,10 +5,14 @@ from baseconv import BaseConverter
 
 
 app = Flask(__name__)
+app.config.from_object('default_settings')
+app.config.from_envvar('TAMALES_SETTINGS', silent=True)
 
-redis_store = redis.StrictRedis(host='redis.lxc', port=6379, db=0)
-base62random = BaseConverter('h6sCQgcPqJNrSzlWn5TfeBK8HxiY1Z7'
-                             'kIap3yXODMbvVt0m2udjRU4GEFoL9Aw')
+redis_store = redis.StrictRedis(host=app.config['REDIS_HOST'],
+                                port=app.config['REDIS_PORT'],
+                                db=app.config['REDIS_DB'])
+
+base62random = BaseConverter(app.config['ALPHABET'])
 
 
 def generate_code():
@@ -70,4 +74,4 @@ def go_to(code):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

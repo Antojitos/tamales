@@ -1,0 +1,7 @@
+DEBUG = False
+
+ALPHABET = 'h6sCQgcPqJNrSzlWn5TfeBK8HxiY1Z7kIap3yXODMbvVt0m2udjRU4GEFoL9Aw'
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 0
