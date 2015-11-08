@@ -22,6 +22,8 @@ def get_url(code):
 
 
 def get_code(url):
+    # FIXME: this function must be atomic
+    # See http://redis.io/topics/transactions
     code = generate_code()
     redis_store.set(code, url)
     return code
