@@ -8,11 +8,16 @@ The original pre-Hispanic URL shortener.
 Install
 -------
 
-To install an run Tamales on a virtualenv::
+To install Tamales on a virtualenv::
 
     git clone https://github.com/Antojitos/tamales.git
     cd tamales
     pip install -r requirements.txt
+
+You also need a running instance of Redis. If you use a Debian-based
+system you can install it with::
+
+    sudo apt-get install redis-server
 
 
 Usage
