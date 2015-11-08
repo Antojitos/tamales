@@ -5,7 +5,8 @@ import unittest
 class TamalesUtilsTestCase(unittest.TestCase):
     def test_generate_code(self):
         code = tamales.generate_code()
-        self.assertEqual('aa', code)
+        char_one = tamales.app.config['ALPHABET'][1]
+        self.assertEqual(char_one, code)
 
 
 class TamalesAPITestCase(unittest.TestCase):
