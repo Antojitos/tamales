@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import jsonify, request, redirect
+from flask import jsonify, request, redirect, abort
 import redis
 from baseconv import BaseConverter
 
@@ -17,7 +17,8 @@ base62random = BaseConverter(app.config['ALPHABET'])
 
 def get_url(code):
     url = redis_store.get(code)
-    return url.decode('utf-8')
+    if url:
+        return url.decode('utf-8')
 
 
 def get_code(url):
@@ -67,6 +68,8 @@ def shorten():
 @app.route("/api/v1/urls/<code>", methods=['GET'])
 def metadata(code):
     long_url = get_url(code)
+    if not long_url:
+        abort(404)
     short_url = '{0}{1}'.format(request.host_url, code)
     data = {
         'long_url': long_url,
@@ -78,6 +81,8 @@ def metadata(code):
 @app.route("/<code>")
 def go_to(code):
     url = get_url(code)
+    if not url:
+        abort(404)
     return redirect(url)
 
 
