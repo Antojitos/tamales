@@ -3,8 +3,8 @@ import unittest
 
 
 class TamalesUtilsTestCase(unittest.TestCase):
-    def test_generate_code(self):
-        code = tamales.generate_code()
+    def test_get_code(self):
+        code = tamales.get_code('http://www.example.com')
         char_one = tamales.app.config['ALPHABET'][1]
         self.assertEqual(char_one, code)
 
