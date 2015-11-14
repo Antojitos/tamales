@@ -4,6 +4,9 @@ Tamales
 
 The original pre-Hispanic URL shortener.
 
+.. image:: https://travis-ci.org/Antojitos/tamales.svg?branch=master
+       :target: https://travis-ci.org/Antojitos/tamales
+
 
 Install
 -------
