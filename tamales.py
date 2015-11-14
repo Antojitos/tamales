@@ -15,21 +15,29 @@ redis_store = redis.StrictRedis(host=app.config['REDIS_HOST'],
 base62random = BaseConverter(app.config['ALPHABET'])
 
 
-def generate_code():
-    counter = redis_store.incr('counter')
-    return base62random.encode(counter)
-
-
 def get_url(code):
     url = redis_store.get(code)
     return url.decode('utf-8')
 
 
 def get_code(url):
-    # FIXME: this function must be atomic
-    # See http://redis.io/topics/transactions
-    code = generate_code()
-    redis_store.set(code, url)
+    # Store counter value using the zero element of the alphabet
+    counter = app.config['ALPHABET'][0]
+
+    with redis_store.pipeline() as pipe:
+        for _ in range(app.config['REDIS_COUNTER_ERRORS']):
+            try:
+                pipe.watch(counter)
+                value = pipe.get(counter) or 0
+                next_value = int(value) + 1
+                code = base62random.encode(next_value)
+                pipe.multi()
+                pipe.set(counter, next_value)
+                pipe.set(code, url)
+                pipe.execute()
+                break
+            except redis.WatchError:
+                continue
     return code
 
 
