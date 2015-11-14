@@ -41,7 +41,7 @@ def get_code(url):
     return code
 
 
-@app.route("/")
+@app.route("/api/v1/")
 def index():
     data = {
         'name': 'tamales',
@@ -51,7 +51,7 @@ def index():
     return jsonify(**data)
 
 
-@app.route("/", methods=['POST'])
+@app.route("/api/v1/urls", methods=['POST'])
 def shorten():
     request_json = request.get_json()
     long_url = request_json['url']
@@ -64,7 +64,7 @@ def shorten():
     return jsonify(**data)
 
 
-@app.route("/<code>/metadata")
+@app.route("/api/v1/urls/<code>", methods=['GET'])
 def metadata(code):
     long_url = get_url(code)
     short_url = '{0}{1}'.format(request.host_url, code)

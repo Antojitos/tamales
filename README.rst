@@ -40,9 +40,17 @@ settings and pass it exporting ``TAMALES_SETTINGS``::
 Usage
 -----
 
-You can interact with the Tamales server using ``curl``::
+You can interact with the Tamales server using ``curl`` to shorten an URL::
 
-    $ curl -H "Content-type: application/json" -X POST http://127.0.0.1:5000/ -d '{"url":"https://github.com/Antojitos/tamales"}'
+    $ curl -H "Content-type: application/json" -X POST http://127.0.0.1:5000/api/v1/urls -d '{"url":"https://github.com/Antojitos/tamales"}'
+    {
+      "long_url": "https://github.com/Antojitos/tamales",
+      "short_url": "http://127.0.0.1:5000/c"
+    }
+
+or getting its information::
+
+    $ curl http://127.0.0.1:5000/api/v1/urls/c
     {
       "long_url": "https://github.com/Antojitos/tamales",
       "short_url": "http://127.0.0.1:5000/c"

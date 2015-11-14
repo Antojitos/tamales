@@ -14,7 +14,7 @@ class TamalesAPITestCase(unittest.TestCase):
         self.app = tamales.app.test_client()
 
     def test_simple(self):
-        res = self.app.get('/')
+        res = self.app.get('/api/v1/')
         self.assertEqual(res.status_code, 200)
 
 
