@@ -28,16 +28,16 @@ Running the server
 
 Run the Tamales server::
 
-    python tamales.py
+    python src/runserver.py
 
 Now, you can point your browser to http://localhost:5000/
 
 In order to use your own settings, you can make a copy of the defaults
 settings and pass it exporting ``TAMALES_SETTINGS``::
 
-    cp default_settings.py settings.py
+    cp src/tamales/default_settings.py settings.py
     vim settings.py
-    TAMALES_SETTINGS=settings.py python tamales.py
+    TAMALES_SETTINGS=../../settings.py src/runserver.py
 
 
 Usage
