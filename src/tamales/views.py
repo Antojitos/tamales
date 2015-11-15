@@ -1,12 +1,9 @@
-from flask import Flask
 from flask import jsonify, request, redirect, abort
 import redis
 from baseconv import BaseConverter
 
+from tamales import app
 
-app = Flask(__name__)
-app.config.from_object('default_settings')
-app.config.from_envvar('TAMALES_SETTINGS', silent=True)
 
 redis_store = redis.StrictRedis(host=app.config['REDIS_HOST'],
                                 port=app.config['REDIS_PORT'],
@@ -84,7 +81,3 @@ def go_to(code):
     if not url:
         abort(404)
     return redirect(url)
-
-
-if __name__ == "__main__":
-    app.run()
