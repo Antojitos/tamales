@@ -2,7 +2,7 @@ from flask import jsonify, request, redirect, abort
 import redis
 from baseconv import BaseConverter
 
-from tamales import app
+from tamales import app, __version__
 
 
 redis_store = redis.StrictRedis(host=app.config['REDIS_HOST'],
@@ -43,7 +43,7 @@ def get_code(url):
 def index():
     data = {
         'name': 'tamales',
-        'version': '0.1',
+        'version': __version__,
         'url': 'https://github.com/Antojitos/tamales/',
     }
     return jsonify(**data)

@@ -15,7 +15,7 @@ To install Tamales on a virtualenv::
 
     git clone https://github.com/Antojitos/tamales.git
     cd tamales
-    pip install -r requirements.txt
+    pip install -e .
 
 You also need a running instance of Redis. If you use a Debian-based
 system you can install it with::
