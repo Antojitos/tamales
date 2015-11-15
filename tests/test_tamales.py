@@ -20,7 +20,3 @@ class TamalesAPITestCase(unittest.TestCase):
     def test_unknown_code(self):
         res = self.app.get('/api/v1/urls/DoesNotExist')
         self.assertEqual(res.status_code, 404)
-
-
-if __name__ == '__main__':
-    unittest.main()
