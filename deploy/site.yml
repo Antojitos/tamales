@@ -1,0 +1,9 @@
+---
+# This playbook deploys the whole Tamales stack.
+
+- name: configure and deploy web server, database and application code
+  hosts: servers
+  remote_user: root
+
+  roles:
+    - tamales

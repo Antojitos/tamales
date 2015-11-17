@@ -1,0 +1,16 @@
+---
+# Install and configure nginx
+
+- name: install nginx server
+  apt: name=nginx-full state=present
+
+- name: disable nginx default site
+  file: path=/etc/nginx/sites-enabled/default state=absent
+
+- name: create configuration file for tamales site
+  template: src=nginx-tamales.site.j2 dest=/etc/nginx/sites-available/tamales.site
+  notify: reload nginx
+
+- name: enable tamales site
+  file: src=/etc/nginx/sites-available/tamales.site dest=/etc/nginx/sites-enabled/00-tamales state=link
+  notify: reload nginx

@@ -1,0 +1,9 @@
+[program:tamales]
+command = gunicorn -b {{ gunicorn_host }}:{{ gunicorn_port }} -w {{ gunicorn_workers }} tamales:app
+
+autostart = true
+autorestart = true
+
+redirect_stderr = False
+stdout_logfile = /var/log/supervisor/tamales_stdout.log
+stderr_logfile = /var/log/supervisor/tamales_stderr.log
