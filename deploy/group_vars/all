@@ -2,6 +2,7 @@
 # Variables listed here are applicable to all host groups
 
 tamales_version: "0.1.0"
+tamales_server_name: "tamales.example.com"
 
 gunicorn_host: 127.0.0.1
 gunicorn_port: 8000

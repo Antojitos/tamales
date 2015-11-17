@@ -1,2 +1,5 @@
 [servers]
 web1.example.com
+
+[servers:vars]
+tamales_server_name=tamales.example.com
