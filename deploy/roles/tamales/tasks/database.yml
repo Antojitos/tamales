@@ -1,0 +1,5 @@
+---
+# Install and configure Redis DB servers
+
+- name: install redis server
+  apt: name=redis-server state=present
