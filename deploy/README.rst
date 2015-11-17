@@ -8,4 +8,5 @@ Install `ansible <http://docs.ansible.com/ansible/intro_installation.html>`_ and
 
     cd deploy
     cp hosts.example hosts
+    vim hosts # add your remote server
     ansible-playbook -i hosts site.yml
