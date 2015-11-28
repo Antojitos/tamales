@@ -12,7 +12,8 @@
 
 - name: install tamales
   pip: name='https://github.com/Antojitos/tamales/archive/{{ tamales_version }}.tar.gz'
+  notify: restart supervisor
 
 - name: create configuration file for supervisor
   template: src=supervisor-tamales.conf.j2 dest=/etc/supervisor/conf.d/tamales.conf
-  notify: reload supervisor
+  notify: update supervisor

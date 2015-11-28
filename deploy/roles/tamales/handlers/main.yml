@@ -1,6 +1,9 @@
 ---
-- name: reload supervisor
+- name: update supervisor
   command: supervisorctl update
+
+- name: restart supervisor
+  command: supervisorctl restart tamales
 
 - name: reload nginx
   service: name=nginx state=reloaded
