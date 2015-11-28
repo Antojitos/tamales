@@ -59,3 +59,13 @@ or getting its information::
       "short_url": "http://127.0.0.1:5000/c"
     }
 
+
+Testing
+-------
+
+To execute the test suite::
+
+    pip install -e .
+    python -m unittest discover -s tests
+
+You need an already installed Redis server.
