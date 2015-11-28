@@ -1,6 +1,6 @@
 from flask import Flask
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 app = Flask(__name__)
 app.config.from_object('tamales.default_settings')
