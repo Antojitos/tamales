@@ -8,3 +8,7 @@ tamales_server_root_dir: "/var/www/tamales.example.com"
 gunicorn_host: 127.0.0.1
 gunicorn_port: 8000
 gunicorn_workers: 4
+
+nginx_rl_zone_size: 5m
+nginx_rl_zone_rate: 1r/s
+nginx_rl_zone_burst: 3
