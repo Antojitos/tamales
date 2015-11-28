@@ -3,6 +3,9 @@ from tamales import app, views
 
 
 class TamalesUtilsTestCase(unittest.TestCase):
+    def setUp(self):
+        views.redis_store.flushdb()
+
     def test_get_code(self):
         code = views.get_code('http://www.example.com')
         char_one = app.config['ALPHABET'][1]
