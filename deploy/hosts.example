@@ -3,3 +3,4 @@ web1.example.com
 
 [servers:vars]
 tamales_server_name=tamales.example.com
+tamales_server_root_dir=/var/www/tamales.example.com

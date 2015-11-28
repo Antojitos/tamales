@@ -3,11 +3,18 @@ server {
 
     server_name {{ tamales_server_name }};
 
-    access_log  /var/log/nginx/tamales_access.log;
-    error_log  /var/log/nginx/tamales_error.log;
+    access_log  /var/log/nginx/{{ tamales_server_name }}-access.log;
+    error_log  /var/log/nginx/{{ tamales_server_name }}-error.log;
+
+    root {{ tamales_server_root_dir }};
+    index index.html;
 
     location / {
-        proxy_pass         http://{{ gunicorn_host }}:{{ gunicorn_port }}/;
+        try_files $uri $uri/ @tamales_app;
+    }
+
+    location @tamales_app {
+        proxy_pass         http://{{ gunicorn_host }}:{{ gunicorn_port }};
         proxy_redirect     off;
 
         proxy_set_header   Host             $host;
