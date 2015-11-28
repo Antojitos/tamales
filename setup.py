@@ -13,7 +13,7 @@ setup(
     description="The original pre-Hispanic URL shortener",
     long_description=long_description,
     license="GNU General Public License v3 (GPLv3)",
-    url="https://github.com/Antojitos/tamales",
+    url="http://t.antojitos.io/",
     download_url="https://github.com/Antojitos/tamales/archive/0.1.0.tar.gz",
     keywords=["tamales", "url", "shortener"],
     classifiers=[

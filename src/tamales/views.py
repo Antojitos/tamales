@@ -44,7 +44,7 @@ def index():
     data = {
         'name': 'tamales',
         'version': __version__,
-        'url': 'https://github.com/Antojitos/tamales/',
+        'url': 'http://t.antojitos.io/',
     }
     return jsonify(**data)
 
