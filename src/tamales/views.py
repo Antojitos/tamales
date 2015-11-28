@@ -59,7 +59,7 @@ def shorten():
         'long_url': long_url,
         'short_url': short_url,
     }
-    return jsonify(**data)
+    return jsonify(**data), 201
 
 
 @app.route("/api/v1/urls/<code>", methods=['GET'])

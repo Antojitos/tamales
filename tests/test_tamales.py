@@ -20,3 +20,9 @@ class TamalesAPITestCase(unittest.TestCase):
     def test_unknown_code(self):
         res = self.app.get('/api/v1/urls/DoesNotExist')
         self.assertEqual(res.status_code, 404)
+
+    def test_shorten_url(self):
+        res = self.app.post('/api/v1/urls',
+                            data='{"url":"http://www.example.com"}',
+                            headers={'content-type': 'application/json'})
+        self.assertEqual(res.status_code, 201)
