@@ -7,14 +7,14 @@ with open('README.rst') as file:
 
 setup(
     name="tamales",
-    version="0.1.1",
+    version="0.1.2",
     author="Pablo SEMINARIO",
     author_email="pablo@seminar.io",
     description="The original pre-Hispanic URL shortener",
     long_description=long_description,
     license="GNU General Public License v3 (GPLv3)",
     url="http://t.antojitos.io/",
-    download_url="https://github.com/Antojitos/tamales/archive/0.1.1.tar.gz",
+    download_url="https://github.com/Antojitos/tamales/archive/0.1.2.tar.gz",
     keywords=["tamales", "url", "shortener"],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
