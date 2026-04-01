@@ -30,7 +30,7 @@ setup(
     package_dir={'': 'src'},
     packages=find_packages('src'),
     install_requires=[
-        'Flask==2.2.5',
+        'Flask==3.1.3',
         'python-baseconv==1.1.3',
         'redis==2.10.5'
     ],
